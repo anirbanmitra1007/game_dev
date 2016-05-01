@@ -25,6 +25,7 @@ pygame.init()
 screen=pygame.display.set_mode((640,360),0,32)
 background=pygame.image.load(bif).convert()
 ball=pygame.image.load(mif).convert_alpha()
+pygame.display.set_caption('stupid game')
 
 #setting speed for animation
 clock = pygame.time.Clock()
@@ -53,7 +54,7 @@ while True:
 	y+=dmy
 
 	if x>=640:
-		x=-
+		x=0
 	if y>=360:
 		y=0
 	pygame.display.update()	 
