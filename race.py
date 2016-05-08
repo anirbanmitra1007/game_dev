@@ -232,11 +232,21 @@ def game_loop():
 			crash()
 			gameexit = True
 
+
 		if thing_starty >display_height:
 			thing_starty = 0 - thing_height
-			thing_startx = random.randrange(0,display_width-thing_width)
+			if x < display_width/4:
+				thing_startx = random.randrange(0,display_width/4)
+			elif x > display_width/4 and x < display_width/2:
+				thing_startx = random.randrange(display_width/4,display_width/2)
+			elif x > display_width/2 and x < display_width*.75:
+				thing_startx = random.randrange(display_width/2,display_width*.75)
+			else:
+				thing_startx = random.randrange(display_width*.75,display_width-thing_width)
+
 			dodged+= 1
 			thing_speed+=0.5
+
 
 		if y < thing_starty + thing_height:
 
