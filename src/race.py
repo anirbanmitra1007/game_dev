@@ -1,33 +1,6 @@
 import math,pygame,random,sys,time
 from pygame.locals import *
 
-#start of main function
-pygame.init()
-
-#size initialization
-display_width = 800
-display_height = 600 
-
-crash_sound = pygame.mixer.Sound("crash.wav")
-pygame.mixer.music.load("Five_Card_Shuffle.wav")
-car_width=50
-white=(255,255,255)
-black=(0,0,0)
-red=(180,0,0)
-bright_red=(255,0,0)
-green=(0,180,0)
-bright_green=(0,255,0)
-blue=(0,0,255)
-block_color=(128,23,78)
-
-gameDisplay = pygame.display.set_mode((display_width,display_height),0,32)
-
-pygame.display.set_caption('A racey game')
-
-clock = pygame.time.Clock()
-carImg = pygame.image.load('ball.png')
-pause = False
-#end of main
 def quitgame():
 	pygame.quit()
 	quit()
@@ -122,22 +95,25 @@ def things_dodged(count):
 	gameDisplay.blit(text,(0,0))
 
 #defining obstacles
+
 def things(thingx,thingy,thingw,thingh,color):
 	pygame.draw.rect(gameDisplay,color,[thingx,thingy,thingw,thingh])
+
 #end of defining obstacles
 
-#displaying car
+#displaying car on screen
+
 def car(x,y):
 	gameDisplay.blit(carImg,(x,y))
-#displaying car
 
-#displaying text
+#displaying text on screen
 
 def text_objects(text, font):
 	textsurf = font.render(text,True,black)
 	return textsurf, textsurf.get_rect()
 
-#defining message to display
+#defining message to display\
+
 def message_display(text):
 	largetext = pygame.font.Font('freesansbold.ttf',110 )
 	textsurf, textrect = text_objects(text,largetext)
@@ -147,9 +123,9 @@ def message_display(text):
 	time.sleep(2)
 	game_loop()
 # end of message display
+
 # crash function
 def crash():
-
 	# music playing
 	pygame.mixer.music.stop()
 	pygame.mixer.Sound.play(crash_sound)
@@ -175,7 +151,6 @@ def crash():
 		clock.tick(10)
 
 
-#end of crash function
 # game loop
 def game_loop():
 
@@ -259,7 +234,34 @@ def game_loop():
 		clock.tick(60) #gives a delay
 # end of game loop
 
-#start of main
-game_intro()
-game_loop()
-quitgame()
+if __name__=="__main__":
+	#start of main function
+	pygame.init()
+
+	display_width = 800
+	display_height = 600 
+
+	crash_sound = pygame.mixer.Sound("../sound/crash.wav")
+	pygame.mixer.music.load("../sound/Five_Card_Shuffle.wav")
+	car_width=50
+	white=(255,255,255)
+	black=(0,0,0)
+	red=(180,0,0)
+	bright_red=(255,0,0)
+	green=(0,180,0)
+	bright_green=(0,255,0)
+	blue=(0,0,255)
+	block_color=(128,23,78)
+
+	gameDisplay = pygame.display.set_mode((display_width,display_height),0,32)
+
+	pygame.display.set_caption('A racey game')
+
+	clock = pygame.time.Clock()
+	carImg = pygame.image.load('../images/ball.png')
+	pause = False
+
+	game_intro()
+	game_loop()
+	quitgame()
+#end of main

@@ -14,7 +14,7 @@ cyan =(0,255,255)
 purple = (255,0,255)
 
 clock = pygame.time.Clock()
-img= pygame.image.load('ball.png')
+img= pygame.image.load('../images/ball.png')
 imgx=20
 imgy=20
 pixMove= 5
