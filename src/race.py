@@ -5,15 +5,20 @@ def quitgame():
 	pygame.quit()
 	quit()
 
-# unpause
+
 def unpause():
+	"""
+	unpause
+	"""
 	global pause
 	pygame.mixer.music.unpause()
 	pause = False
 #pause
 def paused():
 
-	#stop the music
+	"""
+	stops the music
+	"""
 	pygame.mixer.music.pause()
 	largetext = pygame.font.Font('freesansbold.ttf',110 )
 	textsurf, textrect = text_objects("Paused",largetext)
@@ -34,7 +39,8 @@ def paused():
 		gameDisplay.blit(textsurf,textrect)
 		pygame.display.update()
 		clock.tick(10)
-#end of pause
+
+
 def button(msg,x,y,width,height,icol,acol,action=None):
 	
 	mouse = pygame.mouse.get_pos()
